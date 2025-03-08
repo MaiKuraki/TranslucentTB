@@ -1,4 +1,6 @@
 #include "tapsite.hpp"
+#include <format>
+
 #include "constants.hpp"
 #include "util/string_macros.hpp"
 #include "win32.hpp"
@@ -40,14 +42,14 @@ DWORD TAPSite::Install(void*)
 	}
 
 	DWORD pid = GetCurrentProcessId();
-	uint8_t attempts = 0;
+	uint8_t attempts = 1;
 	do
 	{
 		// We need this to exist because XAML Diagnostics can only be initialized once per thread
 		// future calls simply return S_OK without doing anything.
-		std::thread([&hr, ixde, pid, &location]
+		std::thread([&hr, ixde, pid, &location, conn = std::format(L"VisualDiagConnection{}", static_cast<int>(attempts))]
 		{
-			hr = ixde(L"VisualDiagConnection1", pid, nullptr, location.c_str(), CLSID_TAPSite, nullptr);
+			hr = ixde(conn.c_str(), pid, nullptr, location.c_str(), CLSID_TAPSite, nullptr);
 		}).join();
 
 		if (SUCCEEDED(hr))
@@ -59,7 +61,7 @@ DWORD TAPSite::Install(void*)
 			++attempts;
 			Sleep(500);
 		}
-	} while (FAILED(hr) && attempts < 60);
+	} while (FAILED(hr) && attempts <= 60);
 	// 60 * 500ms = 30s
 
 	event.SetEvent();
