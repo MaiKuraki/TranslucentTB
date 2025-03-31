@@ -429,6 +429,7 @@
     </Midl>
   </ItemGroup>
   <ItemGroup>
+    <PRIResource Include="Strings\he-IL\Resources.resw" />
     <PRIResource Include="Strings\ko-KR\Resources.resw" />
     <PRIResource Include="Strings\uk-UA\Resources.resw" />
     <PRIResource Include="Strings\de-DE\Resources.resw" />

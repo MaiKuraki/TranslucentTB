@@ -44,6 +44,9 @@
     <Filter Include="Resources\Strings\ko-KR">
       <UniqueIdentifier>{ff016652-900e-4531-b2f5-8160f949e192}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\Strings\he-IL">
+      <UniqueIdentifier>{20c40651-21b2-45b6-9707-197a848bd1b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -149,6 +152,9 @@
     </PRIResource>
     <PRIResource Include="Strings\ko-KR\Resources.resw">
       <Filter>Resources\Strings\ko-KR</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\he-IL\Resources.resw">
+      <Filter>Resources\Strings\he-IL</Filter>
     </PRIResource>
   </ItemGroup>
 </Project>
