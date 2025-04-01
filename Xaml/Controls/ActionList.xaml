@@ -17,7 +17,7 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <ContentPresenter Content="{x:Bind Icon}" Width="20" Height="24" VerticalAlignment="Top" Margin="16" />
+                    <ContentPresenter Content="{x:Bind Icon}" Width="20" Height="24" VerticalAlignment="Top" Margin="16" FlowDirection="LeftToRight" />
                     <StackPanel Grid.Column="1" Margin="0,12">
                         <TextBlock FontSize="14" Text="{x:Bind Name}" Foreground="{ThemeResource SystemAccentColor}" TextLineBounds="TrimToCapHeight" />
                         <TextBlock FontSize="13" Opacity="0.6" Text="{x:Bind Description}" />

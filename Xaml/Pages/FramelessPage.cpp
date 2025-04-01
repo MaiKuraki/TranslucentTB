@@ -25,10 +25,15 @@ namespace winrt::TranslucentTB::Xaml::Pages::implementation
 		return true;
 	}
 
-	void FramelessPage::ShowSystemMenu(const wf::Point &position)
+	void FramelessPage::ShowSystemMenu(wf::Point position)
 	{
 		if (CanMove())
 		{
+			if (FlowDirection() == wux::FlowDirection::RightToLeft)
+			{
+				position.X = static_cast<float>(ActualWidth() - position.X);
+			}
+
 			SystemMenu().ShowAt(*this, position);
 		}
 	}
@@ -42,11 +47,15 @@ namespace winrt::TranslucentTB::Xaml::Pages::implementation
 	{
 		if (!ExpandIntoTitlebar())
 		{
+			const auto titlebar = Titlebar();
+			const double titlebarHeight = titlebar.ActualHeight();
+			const float controlsPosition = CustomTitlebarControls().ActualOffset().x;
+
 			return {
+				FlowDirection() == wux::FlowDirection::LeftToRight ? 0.0f : static_cast<float>(titlebar.ActualWidth() - controlsPosition),
 				0.0f,
-				0.0f,
-				static_cast<float>(ActualWidth() - (CloseButton().ActualWidth() + CustomTitlebarControls().ActualWidth())),
-				static_cast<float>(Titlebar().ActualHeight())
+				controlsPosition,
+				static_cast<float>(titlebarHeight)
 			};
 		}
 		else
@@ -75,26 +84,18 @@ namespace winrt::TranslucentTB::Xaml::Pages::implementation
 			{
 				const auto closeButton = CloseButton();
 
-				if (height == 0.0f)
-				{
-					height = closeButton.ActualHeight();
-				}
-
 				width += closeButton.ActualWidth();
+				height = std::max(height, closeButton.ActualHeight());
 			}
 
 			for (const auto button : m_TitlebarContent)
 			{
-				if (height == 0.0f)
-				{
-					height = button.ActualHeight();
-				}
-
 				width += button.ActualWidth();
+				height = std::max(height, button.ActualHeight());
 			}
 
 			return {
-				static_cast<float>(ActualWidth() - width),
+				FlowDirection() == wux::FlowDirection::LeftToRight ? static_cast<float>(ActualWidth() - width) : 0.0f,
 				0.0f,
 				static_cast<float>(width),
 				static_cast<float>(height)

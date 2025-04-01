@@ -113,6 +113,21 @@ std::thread Localization::ShowLocalizedMessageBox(uint16_t resource, UINT type, 
 {
 	const auto msg = LoadLocalizedResourceString(resource, hInst, lang);
 
+	// attempt to find out if the target locale is RTL
+	DWORD readingLayout = 0;
+	if (GetLocaleInfo(lang, LOCALE_IREADINGLAYOUT | LOCALE_RETURN_NUMBER, reinterpret_cast<LPWSTR>(&readingLayout), sizeof(readingLayout)))
+	{
+		// 1 == RTL, https://learn.microsoft.com/en-us/windows/win32/intl/locale-ireadinglayout
+		if (readingLayout == 1)
+		{
+			type |= MB_RTLREADING | MB_RIGHT;
+		}
+	}
+	else
+	{
+		LastErrorHandle(spdlog::level::warn, L"Failed to get locale info");
+	}
+
 	return std::thread([msg, type, lang]() noexcept
 	{
 		MessageBoxEx(Window::NullWindow, msg.c_str(), APP_NAME, type, lang);

@@ -16,7 +16,7 @@ namespace winrt::TranslucentTB::Xaml::Pages::implementation
 		bool CanMove() noexcept;
 		virtual bool CanMoveCore() noexcept;
 
-		void ShowSystemMenu(const wf::Point &position);
+		void ShowSystemMenu(wf::Point position);
 		void HideSystemMenu();
 
 		wf::Rect DragRegion();
