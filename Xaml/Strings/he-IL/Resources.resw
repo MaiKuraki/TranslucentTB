@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -226,7 +226,7 @@
     <value>הצג גבול שורת משימות</value>
   </data>
   <data name="TrayFlyoutPage_MaximizedWindow.Text" xml:space="preserve">
-    <value>חלון מוגדל</value>
+    <value>כשקיים חלון מלא</value>
   </data>
   <data name="TrayFlyoutPage_Normal.Text" xml:space="preserve">
     <value>רגיל</value>
@@ -253,14 +253,14 @@
     <value>טיפים וטריקים</value>
   </data>
   <data name="TrayFlyoutPage_VisibleWindow.Text" xml:space="preserve">
-    <value>חלון גלוי</value>
+    <value>כשחלון פעיל</value>
   </data>
   <data name="WelcomePage.Title" xml:space="preserve">
-    <value>!ברוך הבא ל-TranslucentTB</value>
+    <value>ברוך הבא ל-TranslucentTB!</value>
   </data>
   <data name="WelcomePage_Action_Configure.Description" xml:space="preserve">
     <value>תוכל תמיד לעשות זאת על ידי לחיצה על מתקדם &gt; ערוך הגדרות בתפריט הסמל במגש
-השינויים נטענים אוטומטית כאשר אתה שומר את הקובץ</value>
+השינויים יוחלו כאשר תשמור את הקובץ</value>
   </data>
   <data name="WelcomePage_Action_Configure.Name" xml:space="preserve">
     <value>ערוך את קובץ התצורה</value>
