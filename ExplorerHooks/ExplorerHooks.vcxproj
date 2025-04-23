@@ -15,9 +15,6 @@
     <ClCompile>
       <ExceptionHandling>false</ExceptionHandling>
       <PreprocessorDefinitions>EXPLORERHOOKS_EXPORTS;WIL_SUPPRESS_EXCEPTIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
-	  <!-- workaround for https://github.com/microsoft/wil/issues/512 -->
-	  <PreprocessorDefinitions>WIL_USE_STL=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>detours.lib;kernel32.lib;ole32.lib;user32.lib</AdditionalDependencies>

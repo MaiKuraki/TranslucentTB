@@ -183,7 +183,7 @@
       <PreprocessorDefinitions>SPDLOG_DISABLE_DEFAULT_LOGGER;SPDLOG_NO_NAME;SPDLOG_NO_THREAD_ID;SPDLOG_NO_TLS;SPDLOG_USE_STD_FORMAT;SPDLOG_WCHAR_TO_UTF8_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 
       <!-- wil -->
-      <PreprocessorDefinitions>RESULT_SUPPRESS_STATIC_INITIALIZERS;WIL_LOCK_EXCEPTION_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RESULT_SUPPRESS_STATIC_INITIALIZERS;WIL_LOCK_EXCEPTION_MODE;WIL_USE_STL=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 
       <!-- Windows -->
       <PreprocessorDefinitions>_HIDE_GLOBAL_ASYNC_STATUS;STRICT_TYPED_ITEMIDS;NOMINMAX;_WINDOWS;WIN32_LEAN_AND_MEAN;WINRT_WINDOWS_ABI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
